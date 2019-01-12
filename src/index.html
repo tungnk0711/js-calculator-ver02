@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+</head>
+<body>
+<form>
+    <label>First Number:</label>
+    <input type="text" id="txtFirstNum">
+    <br/>
+    <label>Second Number:</label>
+    <input type="text" id="txtSecondNum">
+    <br/>
+    <button type="button" value="add" id="btnAdd" onclick="calculate(this);">+</button>
+    <button type="button" value="sub" id="btnSub" onclick="calculate(this);">-</button>
+    <button type="button" value="mul" id="btnMul" onclick="calculate(this);">*</button>
+    <button type="button" value="div" id="btnDiv" onclick="calculate(this);">/</button>
+    <br/>
+    <label>Result: </label>
+    <label id="lblResult" style="font-size: 16px; color: red;"></label>
+</form>
+
+<script>
+    function calculate(objButton) {
+        var firstNum = document.getElementById('txtFirstNum');
+        var secondNum = document.getElementById('txtSecondNum');
+        var firstNumValue = parseInt(firstNum.value);
+        var secondNumValue = parseInt(secondNum.value);
+        var result = 0;
+
+        switch (objButton.value) {
+            case 'add': {
+                result = firstNumValue + secondNumValue;
+                break;
+            }
+            case 'sub': {
+                result = firstNumValue - secondNumValue;
+                break;
+            }
+            case 'mul': {
+                result = firstNumValue * secondNumValue;
+                break;
+            }
+            case 'div': {
+                result = firstNumValue / secondNumValue;
+                break;
+            }
+        }
+
+        var lblResult = document.getElementById('lblResult');
+        lblResult.innerText = result.toString();
+
+    }
+</script>
+
+
+</body>
+</html>
